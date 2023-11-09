@@ -1,35 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, SafeAreaView, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import Home from './app/index';
 import axios from 'axios';
 
 export default function App() {
-
-  axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then(function (response) {
-      // handle success
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
   return (
-    <View style={styles.container}>
-    {/*Create Button that redirects me to the app/index.js*/}
-      <Text onPress={() => alert('Hello, world!')}>Hello, world!</Text>
+    <View className="flex px-6 pt-16 relative bg-slate-100 min-h-full">
       <StatusBar style="auto" />
-
+      <Image source={require('./assets/images/moviesBackground.jpg')} className="w-full absolute -top-5 opacity-10" style={{ height: 210, width: 420 }} />
       <Home />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
